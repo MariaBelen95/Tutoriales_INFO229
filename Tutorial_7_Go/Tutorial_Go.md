@@ -1,9 +1,11 @@
 #Tutorial Go
+
 En este tutorial se verá lo básico del lenguaje Go, pasando por módulos, funciones y errores para finalizar viendo cómo realizar pruebas en el código.
 
 Para empezar, si no tenemos instalado el lenguaje, se puede hacer de forma simple siguiendo las instrucciones de la [página oficial](https://golang.org/doc/install).
 
 ##Print 'Hello, World!'
+
 Vamos a crear un directorio llamado hello, dentro del cual crearemos el archivo hello.go
 En este archivo escribiremos el siguiente código:
 
@@ -21,6 +23,7 @@ Para correr este código ecribimos en la consola
   $ go run hello.go
 
 ##Llamar código de un paquete externo
+
 En [pkg.go.dev](pkg.go.dev) podemos encontrar múltiples paquetes publicados, en la sección Index dentro de la pestaña Doc, podemos ver las funciones que contiene el paquete en cuestión para saber si alguna nos sirve.
 En esta ocasión usaremos la función Go() del paquete 'rcs.io/quote'. El código debería quedar de la siguiente forma:
 
@@ -153,6 +156,7 @@ Estamos configurando el paquete log para que imprima 'greetings: ' al principio 
 Para ver qué sucede, ejecutamos el comando 'go run hello.go'.
 
 ##Retornar un Saludo Aleatorio
+
 En el archivo greetings/greetings.go cambiamos nuestro código por el siguiente:
 
     package greetings
@@ -201,6 +205,7 @@ Usamos el paquete math/rand para generar un número aleatorio para la selección
 En la consola nos ubicamos en el directorio hello y ejecutamos hello.go para ver si el código funciona. Si lo ejecutamos multiples veces, veremos que el mensaje cambia. Recordar agregar un nombre al llamar a la función Hello() en el archivo hello.go
 
 ##Testear el código
+
 Go tiene soporte integrado para pruebas unitarias, lo que hace más fácil realizarlas sobre la marcha. Si usamos la convención de nombres, el paquete testing de Go y el comando 'go test', se pueden escribir y ejecutar rápidamente las pruebas.
 
 En el directorio greetings crearemos el archivo greetings_test.go, el hecho de que el nombre del archivo termina en _test le dice a Go que encontramos pruebas en este.
