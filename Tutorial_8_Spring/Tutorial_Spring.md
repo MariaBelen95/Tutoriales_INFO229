@@ -1,4 +1,5 @@
-#Tutorial Spring
+# Tutorial Spring
+
 Este tutorial está basado en la guía oficial de Spring.
 
 Usaremos [start.spring.io](start.spring.io) para crear un proyecto web con Spring Boot, en la sección 'Dependencies' agregamos Spring Web y luego generamos nuestro proyecto.
@@ -35,7 +36,8 @@ Para ejecutar el programa, nos ubicamos donde tenemos los archivos del proyecto 
 
 Si abrimos el navegador y nos dirigimos a http://localhost:8080/hello deberíamos ver el mensaje en la pantalla.
 
-##RESTful Web Services
+## RESTful Web Services
+
 A continuación construiremos un servicio que acepte solicitudes HTTP GET en http://localhost:8080/greeting. Esta responderá con una representación JSON de un saludo como el que vemos aquí:
 
     {"id":1,"content":"Hello, World!"}
@@ -48,7 +50,8 @@ Este parámetro sobrescribe la palabra 'World' en el saludo.
 
 Para todas las aplicaciones Spring deberíamos usar el [Spring Initializr](https://start.spring.io), este nos ofrece una forma rápida de incorporar todas las dependencias que necesitamos y realiza gran parte de la configuración. para este ejemplo solo necesitamos Spring Web.
 
-###Crear Clase de Representación de Recursos
+### Crear Clase de Representación de Recursos
+
 Ahora que tenemos la forma inicial de nuestro proyecto, podemos crear nuestro servicio web.
 
 Este servicio manejará solicitudes GET para /greeting, con un parámetro opcional 'name'. La solicitud GET debe retornar la respuesta 200 OK con un JSON que representa el saludo. Este se debe ver algo así:
@@ -83,7 +86,8 @@ Para modelar la representación del saludo, creamos una clase de representación
     	}
     }
 
-###Crear un Controlador de recursos
+### Crear un Controlador de recursos
+
 En el enfoque de Spring para crear servicios web RESTful, las solicitudes HTTP son manejadas por un controlador. Estos componentes son identificados por la anotación @RestController, y el @GreetingController maneja las solicitudes GET para /greeting devolviendo una nueva instancia de la clase Greeting. Ambas se muestran en el siguiente código y que debemos guardar en la ubicación 'rc/main/java/com/example/restservice/GreetingController.java':
 
     package com.example.restservice;
@@ -123,7 +127,8 @@ La anotación @SpringBootApplication es una muy conveniente que añade:
 
 El método main() usa el método SpringApplication.run() de Spring Boot para iniciar la aplicación.
 
-###Construir un ejecutable JAR
+### Construir un ejecutable JAR
+
 La aplicación se puede ejecutar por lineas de comando con Gradle o Maven, pero también se puede construir un ejecutable JAR.
 En caso que se esté usando Gradle se puede ejecutar usando './gradlew bootRun'. El ejecutable se puede hacer usando '.gradlew build' y luego se ejecuta el JAR de la siguiente forma:
 
@@ -133,7 +138,8 @@ En el caso de Maven se usa './mvnw spring-boot:run' o para el JAR './mvnw clean 
 
     $java -jar target/gs-rest-service-0.1.0.jar
 
-###Probar el Servicio
+### Probar el Servicio
+
 Ahora que levantamos el servicio, visitamos http://localhost:8080/greeting donde deberíamos ver:
 
     {"id":1,"content":"Hello, World!"}
