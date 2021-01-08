@@ -1,10 +1,10 @@
-#Tutorial Go
+# Tutorial Go
 
 En este tutorial se verá lo básico del lenguaje Go, pasando por módulos, funciones y errores para finalizar viendo cómo realizar pruebas en el código.
 
 Para empezar, si no tenemos instalado el lenguaje, se puede hacer de forma simple siguiendo las instrucciones de la [página oficial](https://golang.org/doc/install).
 
-##Print 'Hello, World!'
+## Print 'Hello, World!'
 
 Vamos a crear un directorio llamado hello, dentro del cual crearemos el archivo hello.go
 En este archivo escribiremos el siguiente código:
@@ -20,9 +20,9 @@ En este archivo escribiremos el siguiente código:
 En este pequeño bloque de código estamos creando un paquete main, importamos "fmt", que es una de las librerías standard de go e implementamos una función main con un print.
 Para correr este código ecribimos en la consola
 
-  $ go run hello.go
+    $ go run hello.go
 
-##Llamar código de un paquete externo
+Llamar código de un paquete externo
 
 En [pkg.go.dev](pkg.go.dev) podemos encontrar múltiples paquetes publicados, en la sección Index dentro de la pestaña Doc, podemos ver las funciones que contiene el paquete en cuestión para saber si alguna nos sirve.
 En esta ocasión usaremos la función Go() del paquete 'rcs.io/quote'. El código debería quedar de la siguiente forma:
@@ -46,7 +46,7 @@ Ahora corremos nuestro código para ver el mensaje generado por la función Go()
 
     $ go run hello.go
 
-##Cómo crear un módulo que otros puedan usaremos
+## Cómo crear un módulo que otros puedan usaremos
 En primer lugar, creemos un directorio greetings para este ejemplo e iniciaremos nuestro módulo usando el comando go mod init que vimos anteriormente. En este ejemplo usamos la URL example.com/greetings, esta es la URL desde donde el módulo puede ser descargado.
 
     $go mod init example.com/greetings
@@ -93,7 +93,7 @@ Desde el directorio hello en la consola, ahora ejecutamos el comando 'go build' 
 
 El comando 'go build' crea un ejecutable que corremos con el comando ./hello o hello.exe
 
-##Manejo de errores
+## Manejo de errores
 
 En greetings/greetings.go añadiremos el siguiente código:
 
@@ -155,7 +155,7 @@ Estamos configurando el paquete log para que imprima 'greetings: ' al principio 
 
 Para ver qué sucede, ejecutamos el comando 'go run hello.go'.
 
-##Retornar un Saludo Aleatorio
+## Retornar un Saludo Aleatorio
 
 En el archivo greetings/greetings.go cambiamos nuestro código por el siguiente:
 
@@ -204,7 +204,7 @@ Usamos el paquete math/rand para generar un número aleatorio para la selección
 
 En la consola nos ubicamos en el directorio hello y ejecutamos hello.go para ver si el código funciona. Si lo ejecutamos multiples veces, veremos que el mensaje cambia. Recordar agregar un nombre al llamar a la función Hello() en el archivo hello.go
 
-##Testear el código
+## Testear el código
 
 Go tiene soporte integrado para pruebas unitarias, lo que hace más fácil realizarlas sobre la marcha. Si usamos la convención de nombres, el paquete testing de Go y el comando 'go test', se pueden escribir y ejecutar rápidamente las pruebas.
 
