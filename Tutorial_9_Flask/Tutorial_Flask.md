@@ -111,7 +111,7 @@ Añadiremos, una hoja de estilo llamada style.css, pero primero crearemos el dir
         padding: 10px;
     }
 
-Esto añadirá un borde, cambiará el color a café, centrará el texto y añadirá un relleno a las etiquetas '<h1>'.
+Esto añadirá un borde, cambiará el color a café, centrará el texto y añadirá un relleno a las etiquetas h1.
     
 Ahora abriremos el archivo index.html y agregaremos un enlace al archivo style.css dentro de la sección <head>:
 
@@ -244,36 +244,35 @@ Después de configurar la base de datos, podemos modificar la función de vista 
 Para esto, en el archivo app.py realizamos las siguientes modificaciones:
 
 - Importamos sqlite3 en la parte superior del script.
-
-    import sqlite3
-    from flask import Flask, render_template
-
-    . . .
-
+        
+        import sqlite3
+        from flask import Flask, render_template
+        #...
+        
 - Creamos una función que cree una conexión con la base de datos y que la retorne.
 
-    . . .
-    from flask import Flask, render_template
+        #...
+        from flask import Flask, render_template
 
-    def get_db_connection():
-        conn = sqlite3.connect('database.db')
-        conn.row_factory = sqlite3.Row
-        return conn
+        def get_db_connection():
+            conn = sqlite3.connect('database.db')
+            conn.row_factory = sqlite3.Row
+            return conn
 
-    . . .
+        #...
 
 Esta función abre una conexión con el archivo database.db, y luego establece el atributo row_factory a sqlite3.Row, lo que significa que la conexión devuelve las filas que se comportan como diccionarios Python regulares. Por último, la función retorna el objeto de conexión conn, que se usará para acceder a la base de datos.
 
 - Ahora modificamos la función index():
 
-    . . .
+        #...
 
-    @app.route('/')
-    def index():
-        conn = get_db_connection()
-        posts = conn.execute('SELECT * FROM posts').fetchall()
-        conn.close()
-        return render_template('index.html', posts=posts)
+        @app.route('/')
+        def index():
+            conn = get_db_connection()
+            posts = conn.execute('SELECT * FROM posts').fetchall()
+            conn.close()
+            return render_template('index.html', posts=posts)
 
 En esta nueva versión, primero se abre una conexión con la base de datos usando la función get_db_connection(). Luego se ejecuta una consulta SQL para seleccionar todas las entradas de la tabla posts. Se implementa el método fetchall() para recuperar las filas del resultado de la consulta. Esto devuelve una lista de las entradas que insertamos en la DB en el paso anterior. A continuación, cerramos la conexión con la base de datos y finalmente, retorna el resultado de representar la plantilla index.html con el objeto posts como argumento, el que contiene los resultados de la DB.
 
