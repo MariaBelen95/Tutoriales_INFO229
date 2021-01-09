@@ -111,7 +111,7 @@ Añadiremos, una hoja de estilo llamada style.css, pero primero crearemos el dir
         padding: 10px;
     }
 
-Esto añadirá un borde, cambiará el color a café, centrará el texto y añadirá un relleno a las etiquetas <h1>.
+Esto añadirá un borde, cambiará el color a café, centrará el texto y añadirá un relleno a las etiquetas '<h1>'.
     
 Ahora abriremos el archivo index.html y agregaremos un enlace al archivo style.css dentro de la sección <head>:
 
