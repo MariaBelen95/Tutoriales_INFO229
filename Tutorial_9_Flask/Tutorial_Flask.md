@@ -293,7 +293,7 @@ Abrimos el archivo index.html y lo modificamos de la siguiente forma:
         {% endfor %}
     {% endblock %}
 
-La sintaxis {% for post in posts %} es un bucle for de Jinja, es similar al de Python con la excepción de que este debe ser cerrado con {% endfor %}. Con esto hacemos un bucle sobre cada elemento de la lista posts que se pasó con la función index() anteriormente. Dentro del bucle se muestra el título en un encabezado <h2> dentro de una etiqueta <a>, que usaremos más tarde.
+La sintaxis {% for post in posts %} es un bucle for de Jinja, es similar al de Python con la excepción de que este debe ser cerrado con {% endfor %}. Con esto hacemos un bucle sobre cada elemento de la lista posts que se pasó con la función index() anteriormente. Dentro del bucle se muestra el título en un encabezado 'h2' dentro de una etiqueta 'a', que usaremos más tarde.
 
 Ahora podemos recargar la página del navegador para visualizar los resultados.
 
@@ -485,7 +485,7 @@ Ahora podemos ser capaces de agregar una nueva entrada en la base de datos a tra
 
 Por último añadiremos un enlace a la barra de navegación en la plantilla base.html, para que sea más fácil acceder a esta página.
 
-Editamos el archivo agregando una nueva etiqueta <li> tras el enlace About dentro de la etiqueta <nav>. A continuación, añadimos un nuevo bloque for sobre el bloque content para mostrar los mensajes generados bajo la barra de navegación. Estos mensajes están disponibles en la función especial get_flashed_message() que ofrece Flask:
+Editamos el archivo agregando una nueva etiqueta 'li' tras el enlace About dentro de la etiqueta 'nav'. A continuación, añadimos un nuevo bloque for sobre el bloque content para mostrar los mensajes generados bajo la barra de navegación. Estos mensajes están disponibles en la función especial get_flashed_message() que ofrece Flask:
 
     <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" href="{{ url_for('index')}}">FlaskBlog</a>
@@ -599,7 +599,7 @@ Abrimos index.html y lo modificamos de la siguiente forma:
         {% endfor %}
     {% endblock %}
 
-Aquí añadimos una etiqueta <a> para enlazar a la función de vista edit(), pasando el valor post['id'] al enlace para editar la página de cada entrada con el enlace Edit.
+Aquí añadimos una etiqueta 'a' para enlazar a la función de vista edit(), pasando el valor post['id'] al enlace para editar la página de cada entrada con el enlace Edit.
 
 ### Eliminar una Entrada
 
@@ -623,7 +623,7 @@ Esta función de vista solo acepta solicitudes POST, esto significa que navegar 
 
 Sin embargo, podemos acceder a esta ruta mediante un formulario que envía una solicitud POST pasando el ID de la entrada que se desea eliminar. La función recibirá el ID y lo usará para obtener la entrada de la base de datos con la función get_post(). Luego, abrirá una conexión a la base de datos y ejecutará un comando SQL para eliminar la entrada, confirma el cambio en la DB y cierra la conexión mientras le muestra al usuario un mensaje que informa que la entrada se eliminó correctamente y lo redirige a la página de inicio.
 
-Ahora abriremos el archivo edit.html y añadiremos la etiqueta <form> tras la etiqueta <hr> y directamente antes de la línea {% endblock %}:
+Ahora abriremos el archivo edit.html y añadiremos la etiqueta 'form' tras la etiqueta 'hr' y directamente antes de la línea {% endblock %}:
 
     <hr>
 
