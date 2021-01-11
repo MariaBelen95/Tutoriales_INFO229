@@ -6,7 +6,7 @@ from slack import WebClient
 
 time.sleep(30)
 
-CANAL_SLACK = "#bot"
+CANAL_SLACK = "#general"
 
 
 ##### CONNEXIÓN A SLACK ########
@@ -49,4 +49,3 @@ channel.basic_consume(
     queue=queue_name, on_message_callback=callback, auto_ack=True)
 
 channel.start_consuming()
-
